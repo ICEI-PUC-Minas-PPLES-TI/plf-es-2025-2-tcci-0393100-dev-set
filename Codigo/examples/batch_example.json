@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "project": "MyProject",
+    "sprint": "Sprint 15",
+    "created_by": "scrum-master@example.com",
+    "created_at": "2025-10-19T00:00:00Z"
+  },
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Implement user authentication with OAuth 2.0",
+      "description": "Add OAuth 2.0 authentication supporting Google and GitHub providers",
+      "labels": ["feature", "authentication", "security"],
+      "priority": "high",
+      "assignee": "dev@example.com"
+    },
+    {
+      "id": "TASK-002",
+      "title": "Fix memory leak in data processing pipeline",
+      "description": "Users report increasing memory usage over time",
+      "labels": ["bug", "performance", "critical"],
+      "priority": "critical"
+    },
+    {
+      "id": "TASK-003",
+      "title": "Add export to PDF functionality",
+      "description": "Users should be able to export reports as PDF files",
+      "labels": ["feature", "reporting"],
+      "priority": "medium"
+    },
+    {
+      "id": "TASK-004",
+      "title": "Refactor database connection pool",
+      "description": "Improve connection management and error handling",
+      "labels": ["refactoring", "database"],
+      "priority": "low"
+    },
+    {
+      "id": "TASK-005",
+      "title": "Write integration tests for API endpoints",
+      "description": "Cover all REST API endpoints with integration tests",
+      "labels": ["testing", "quality"],
+      "priority": "medium"
+    }
+  ]
+}

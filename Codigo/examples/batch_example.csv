@@ -1,0 +1,6 @@
+id,title,description,labels,priority,assignee
+TASK-001,Implement user authentication with OAuth 2.0,Add OAuth 2.0 authentication supporting Google and GitHub providers,feature|authentication|security,high,dev@example.com
+TASK-002,Fix memory leak in data processing pipeline,Users report increasing memory usage over time,bug|performance|critical,critical,
+TASK-003,Add export to PDF functionality,Users should be able to export reports as PDF files,feature|reporting,medium,
+TASK-004,Refactor database connection pool,Improve connection management and error handling,refactoring|database,low,
+TASK-005,Write integration tests for API endpoints,Cover all REST API endpoints with integration tests,testing|quality,medium,

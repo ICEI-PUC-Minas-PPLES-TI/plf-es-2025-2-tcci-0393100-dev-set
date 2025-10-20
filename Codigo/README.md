@@ -1,318 +1,389 @@
-# SET CLI - Software Estimation Tool 🚀
+# SET CLI - Software Estimation Tool
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-blue.svg)](https://golang.org)
 [![Build Status](https://img.shields.io/badge/build-passing-green.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Test Coverage](https://img.shields.io/badge/coverage-68%25-yellow.svg)]()
 
-> Ferramenta CLI inteligente para estimativa de esforço em tarefas de desenvolvimento de software usando IA e análise de dados históricos.
+> AI-powered CLI tool for software task estimation using historical data and intelligent analysis.
 
-## 🎯 Sobre o Projeto
+## About
 
-O SET CLI foi desenvolvido como parte do TCC em Engenharia de Software da PUC Minas, com o objetivo de resolver um dos maiores desafios no desenvolvimento ágil: **estimativas precisas de esforço**.
+SET CLI is a TCC project for Software Engineering at PUC Minas, designed to solve one of agile development's biggest challenges: **accurate effort estimation**.
 
-### ✨ Funcionalidades Principais
+### Key Features
 
-- 🤖 **Estimativas baseadas em IA** - Utiliza GPT-4/Claude para análise inteligente
-- 📊 **Análise de dados históricos** - Aprende com projetos anteriores
-- 🔗 **Integração GitHub** - Coleta automática de dados de repositórios
-- 📈 **Análise de performance** - Identifica padrões e oportunidades de melhoria
-- 📋 **Relatórios executivos** - Dashboards para Product Owners e Stakeholders
-- ⚡ **Processamento em lote** - Estima múltiplas tarefas simultaneamente
+- 🤖 **AI-Powered Estimates** - OpenAI integration for intelligent analysis
+- 📊 **Historical Analysis** - Learn from past project data
+- 🔗 **GitHub Integration** - Automatic data collection from repositories
+- ⚡ **Batch Processing** - Estimate multiple tasks simultaneously
+- 📤 **Data Export** - Multiple formats (CSV, JSON, Markdown, Excel, Jira)
+- 🔍 **Inspection Tools** - Analyze stored data and statistics
 
-### 🎭 Para quem é destinado
+## Quick Start
 
-| Persona | Uso Principal |
-|---------|---------------|
-| 👨‍💻 **Desenvolvedores** | Estimativas individuais, validação de esforço |
-| 🎯 **Scrum Masters** | Planning de sprints, análise de equipe |
-| 📊 **Product Owners** | Relatórios executivos, planejamento de releases |
-
-## 🚀 Instalação
-
-### Pré-requisitos
-
-- **Go 1.21+** - [Instalar Go](https://golang.org/doc/install)
-- **Git** - Para integração com repositórios
-- **Token GitHub** - Para acesso aos dados dos repositórios
-
-### Instalação via Go
+### Installation
 
 ```bash
-go install github.com/seu-usuario/set-cli@latest
-```
-
-### Instalação via Download
-
-```bash
-# Linux/macOS
-curl -L https://github.com/seu-usuario/set-cli/releases/latest/download/set-linux-amd64 -o set
-chmod +x set
-sudo mv set /usr/local/bin/
-
-# Windows (PowerShell)
-Invoke-WebRequest -Uri "https://github.com/seu-usuario/set-cli/releases/latest/download/set-windows-amd64.exe" -OutFile "set.exe"
-```
-
-### Desenvolvimento
-
-```bash
-git clone https://github.com/seu-usuario/set-cli
+# Build from source
+git clone <repository-url>
 cd set-cli
-go mod tidy
 go build -o set main.go
+
+# Or install directly
+go install <module-path>@latest
 ```
 
-## ⚡ Quick Start
-
-### 1. Configuração inicial
+### Basic Usage
 
 ```bash
-# Configuração interativa (recomendado)
+# 1. Configure GitHub and AI credentials
 set configure --initial
 
-# Ou configuração manual
-set configure --github-token "ghp_xxxx" --default-repo "facebook/react"
+# 2. Sync repository data
+set sync
+
+# 3. Estimate a single task
+set estimate "Implement OAuth login system"
+
+# 4. Batch estimate from file
+set batch --file tasks.json
 ```
 
-### 2. Primeira estimativa
-
-```bash
-# Estimar uma tarefa simples
-set estimate --task "Implementar sistema de login com OAuth"
-
-# Ver tarefas similares
-set estimate --task "Criar API REST" --show-similar
-```
-
-### 3. Análise de dados
-
-```bash
-# Analisar performance da equipe
-set analyze --team backend --period last-3-months
-
-# Gerar relatório executivo
-set report --type executive --output pdf
-```
-
-## 📖 Uso Detalhado
-
-### Comandos Principais
-
-<details>
-<summary><code>set configure</code> - Configuração do sistema</summary>
-
-```bash
-# Configuração interativa completa
-set configure --initial
-
-# Configurar token GitHub
-set configure --github-token "ghp_xxxxxxxxxxxx"
-
-# Definir repositório padrão
-set configure --default-repo "facebook/react"
-
-# Ver configurações atuais
-set configure list
-
-# Configurar provedor de IA
-set configure --ai-provider openai --ai-key "sk-xxxxx"
-```
-</details>
-
-<details>
-<summary><code>set estimate</code> - Estimativas de tarefas</summary>
-
-```bash
-# Estimativa individual
-set estimate --task "Implementar autenticação OAuth com Google"
-
-# Com parâmetros específicos
-set estimate -t "Criar dashboard admin" --show-similar --confidence 80
-
-# Estimativa em lote (futuro)
-set estimate --batch backlog.json --output results.csv
-
-# Formatos de saída
-set estimate -t "Task" --format json
-set estimate -t "Task" --format table  # padrão
-```
-</details>
-
-<details>
-<summary><code>set analyze</code> - Análise de dados históricos</summary>
-
-```bash
-# Análise geral da equipe
-set analyze --team backend --period last-6-months
-
-# Análise de precisão
-set analyze --accuracy --developer "john.doe"
-
-# Identificar padrões
-set analyze --patterns --task-type "authentication"
-
-# Comparar períodos
-set analyze --compare --baseline "Q1-2024" --current "Q2-2024"
-```
-</details>
-
-<details>
-<summary><code>set report</code> - Relatórios e dashboards</summary>
-
-```bash
-# Relatório executivo
-set report --type executive --output pdf
-
-# Dashboard de performance
-set report --type dashboard --team frontend
-
-# Relatório de accuracy
-set report --accuracy --period last-sprint --format csv
-
-# Relatório customizado
-set report --template custom.tmpl --data recent.json
-```
-</details>
-
-### Arquivos de Configuração
-
-O SET CLI usa arquivos YAML para configuração:
-
-```yaml
-# ~/.set.yaml
-github:
-  token: "ghp_xxxxxxxxxxxxxxxxxxxx"
-  default_repo: "company/main-project"
-  
-ai:
-  provider: "openai"
-  model: "gpt-4"
-  
-estimation:
-  confidence_threshold: 75
-  max_similar_tasks: 5
-  
-output:
-  format: "table"
-  colors: true
-```
-
-## 🏗️ Arquitetura
+## Architecture
 
 ```mermaid
 graph TB
-    CLI[CLI Layer] --> Core[Core Engine]
-    Core --> GitHub[GitHub Client]
-    Core --> AI[AI Service]
-    Core --> Storage[Local Storage]
-    
-    GitHub --> GitHubAPI[GitHub API]
-    AI --> OpenAI[OpenAI API]
-    Storage --> BoltDB[(BoltDB)]
+    User[User] -->|Commands| CLI[CLI Layer]
+
+    CLI --> Config[Configuration]
+    CLI --> Sync[Sync Command]
+    CLI --> Estimate[Estimate Command]
+    CLI --> Batch[Batch Command]
+    CLI --> Export[Export Command]
+
+    Sync -->|Fetch Data| GH[GitHub Client]
+    Estimate -->|Get Estimation| EST[Estimator]
+    Batch -->|Process Tasks| BP[Batch Processor]
+    Export -->|Read Data| DB[(Storage)]
+
+    GH -->|Store| DB
+    EST -->|Query Similar| DB
+    EST -->|AI Request| AI[AI Provider]
+
+    AI -.->|OpenAI API| OpenAI[OpenAI]
+    AI -.->|Claude API| Claude[Claude]
+
+    style CLI fill:#e1f5ff
+    style DB fill:#ffe1f5
+    style AI fill:#f5ffe1
 ```
 
-### Stack Tecnológico
+## Command Reference
 
-- **Linguagem**: Go 1.21+
-- **CLI Framework**: Cobra + Viper
-- **Persistência**: BoltDB (embedded)
-- **APIs**: GitHub API v4, OpenAI API
-- **Testes**: Go testing + Testify
-- **Build**: Make + GitHub Actions
-
-## 🧪 Desenvolvimento
-
-### Setup do ambiente
+### `configure` - Setup credentials and preferences
 
 ```bash
-# Instalar cobra-cli
-go install github.com/spf13/cobra-cli@latest
+# Interactive setup
+set configure --initial
 
-# Clonar e configurar
-git clone https://github.com/seu-usuario/set-cli
+# Configure GitHub token
+set configure --github-token "ghp_xxxxx"
+
+# Configure AI provider
+set configure --ai-provider openai --ai-key "sk-xxxxx"
+
+# Set default repository
+set configure --default-repo "owner/repo"
+
+# List current configuration
+set configure list
+```
+
+### `sync` - Fetch data from GitHub
+
+```bash
+# Sync default repository
+set sync
+
+# Sync specific repository
+set sync --repo owner/repository
+
+# Full sync (issues + pull requests)
+set sync --full
+```
+
+### `estimate` - Estimate single task
+
+```bash
+# Simple estimation
+set estimate "Create REST API for users"
+
+# With description and similar tasks
+set estimate "Add authentication" \
+  --description "OAuth 2.0 with Google and GitHub" \
+  --show-similar
+
+# Different output formats
+set estimate "Task" --output json
+set estimate "Task" --output table
+```
+
+**Estimation Flow:**
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant CLI
+    participant Estimator
+    participant Storage
+    participant AI
+
+    User->>CLI: estimate "Task"
+    CLI->>Storage: Find similar tasks
+    Storage-->>CLI: Historical data
+    CLI->>Estimator: Process estimation
+    Estimator->>AI: Request AI estimation
+    AI-->>Estimator: Estimation response
+    Estimator->>Estimator: Combine with similar tasks
+    Estimator-->>User: Final estimate
+```
+
+### `batch` - Process multiple tasks
+
+```bash
+# From JSON file
+set batch --file tasks.json --output results.json
+
+# From CSV file
+set batch --file backlog.csv --format csv
+
+# With custom workers
+set batch --file tasks.json --workers 5
+
+# Different output formats
+set batch --file tasks.json --output report.md --format markdown
+set batch --file tasks.csv --output estimates.csv --format csv
+```
+
+**Input Format (JSON):**
+```json
+{
+  "tasks": [
+    {
+      "title": "Implement user authentication",
+      "description": "OAuth 2.0 integration",
+      "labels": ["backend", "security"]
+    },
+    {
+      "title": "Create admin dashboard",
+      "labels": ["frontend", "ui"]
+    }
+  ]
+}
+```
+
+**Input Format (CSV):**
+```csv
+Title,Description,Labels
+Implement user auth,OAuth 2.0,"backend,security"
+Create dashboard,Analytics panel,"frontend,ui"
+```
+
+### `export` - Export historical data
+
+```bash
+# Export to CSV
+set export --format csv --output data.csv
+
+# Export to JSON
+set export --format json --output data.json
+
+# Export for Jira import
+set export --format jira --output jira-import.csv
+
+# Export to Markdown report
+set export --format markdown --output report.md
+
+# Filter exports
+set export --filter bug --output bugs.csv
+set export --date-from 2025-01-01 --output recent.csv
+```
+
+### `inspect` - Analyze stored data
+
+```bash
+# View database statistics
+set inspect
+
+# Detailed inspection
+set inspect --verbose
+
+# Export inspection report
+set inspect --output report.txt
+```
+
+### `dev` - Development utilities
+
+```bash
+# Seed test data
+set dev seed
+
+# Clear all data
+set dev clear
+
+# Check dev mode status
+set dev
+```
+
+## Data Flow
+
+```mermaid
+graph LR
+    A[GitHub Repository] -->|sync| B[Local Storage]
+    B -->|query| C[Estimator Engine]
+    C -->|similar tasks| D[Historical Context]
+    C -->|prompt| E[AI Provider]
+    D -->|context| E
+    E -->|response| F[Final Estimate]
+
+    B -->|export| G[CSV/JSON/Jira]
+
+    style A fill:#24292e,color:#fff
+    style B fill:#f0f0f0
+    style C fill:#4a90e2,color:#fff
+    style E fill:#10a37f,color:#fff
+    style F fill:#22c55e,color:#fff
+```
+
+## Configuration
+
+SET CLI uses `~/.set.yaml` for configuration:
+
+```yaml
+github:
+  token: "ghp_xxxxxxxxxxxxxxxxxxxx"
+  default_repo: "owner/repository"
+
+ai:
+  provider: "openai"        # or "claude"
+  api_key: "sk-xxxxx"
+  model: "gpt-4"            # optional
+
+estimation:
+  confidence_threshold: 0.75
+  max_similar_tasks: 5
+
+output:
+  format: "table"          # table, json, csv
+  colors: true
+```
+
+## Tech Stack
+
+- **Language**: Go 1.21+
+- **CLI Framework**: [Cobra](https://github.com/spf13/cobra) + [Viper](https://github.com/spf13/viper)
+- **Database**: [BoltDB](https://github.com/etcd-io/bbolt) (embedded key-value store)
+- **APIs**: GitHub REST API v3, OpenAI/Claude APIs
+- **Testing**: Go testing + [Testify](https://github.com/stretchr/testify)
+- **Logging**: Custom structured logger
+
+## Development
+
+### Setup
+
+```bash
+# Clone repository
+git clone <repository-url>
 cd set-cli
+
+# Install dependencies
 go mod tidy
 
-# Executar em modo dev
+# Run in development mode
 go run main.go --help
 ```
 
-### Comandos de desenvolvimento
+### Testing
 
 ```bash
-# Executar testes
+# Run all tests
 go test ./...
 
-# Testes com cobertura
+# Run with coverage
 go test -coverprofile=coverage.out ./...
 go tool cover -html=coverage.out
 
-# Build para múltiplas plataformas
-GOOS=linux GOARCH=amd64 go build -o bin/set-linux-amd64 main.go
-GOOS=darwin GOARCH=amd64 go build -o bin/set-darwin-amd64 main.go
-GOOS=windows GOARCH=amd64 go build -o bin/set-windows-amd64.exe main.go
-
-# Linting (requer golangci-lint)
-golangci-lint run
+# Run specific package tests
+go test ./internal/estimator/...
+go test ./internal/github/...
 ```
 
-### Adicionando novos comandos
+### Build
 
 ```bash
-# Adicionar novo comando
-cobra-cli add newcommand
+# Build for current platform
+go build -o set main.go
 
-# Adicionar subcomando
-cobra-cli add subcommand -p 'parentCmd'
+# Cross-platform builds
+GOOS=linux GOARCH=amd64 go build -o bin/set-linux-amd64
+GOOS=darwin GOARCH=amd64 go build -o bin/set-darwin-amd64
+GOOS=windows GOARCH=amd64 go build -o bin/set-windows.exe
 ```
 
-## 🗺️ Roadmap
+### Project Structure
 
-### ✅ Sprint 1 (Concluída) - Setup e CLI Básica
-- [x] Estrutura base com Cobra CLI
-- [x] Sistema de configuração com Viper
-- [x] Comandos básicos
+```
+.
+├── cmd/                    # CLI commands
+│   ├── root.go            # Root command & setup
+│   ├── configure.go       # Configuration management
+│   ├── sync.go            # GitHub synchronization
+│   ├── estimate.go        # Single task estimation
+│   ├── batch.go           # Batch processing
+│   ├── export.go          # Data export
+│   ├── inspect.go         # Database inspection
+│   └── dev.go             # Development utilities
+├── internal/              # Internal packages
+│   ├── ai/               # AI provider integration
+│   ├── config/           # Configuration management
+│   ├── estimator/        # Estimation engine
+│   ├── github/           # GitHub API client
+│   ├── logger/           # Structured logging
+│   └── storage/          # Data persistence
+├── main.go               # Application entry point
+└── go.mod                # Go module definition
+```
 
-### 🚧 Sprint 2 (Em andamento) - Integração GitHub
-- [ ] Cliente GitHub API
-- [ ] Coleta de dados históricos
-- [ ] Sistema de cache local
+## Contributing
 
-### 📋 Próximas Sprints
-- [ ] **Sprint 3**: Core de estimativas + IA
-- [ ] **Sprint 4**: Análise avançada + relatórios
-- [ ] **Sprint 5**: Funcionalidades premium
-- [ ] **Sprint 6**: Otimizações + deployment
+Contributions are welcome! Please:
 
-## 🤝 Contribuição
-
-Contribuições são bem-vindas! Por favor:
-
-1. **Fork** o projeto
-2. Crie uma **branch** para sua feature (`git checkout -b feature/amazing-feature`)
-3. **Commit** suas mudanças (`git commit -m 'Add amazing feature'`)
-4. **Push** para a branch (`git push origin feature/amazing-feature`)
-5. Abra um **Pull Request**
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (use [Conventional Commits](https://conventionalcommits.org/))
+4. Push to the branch
+5. Open a Pull Request
 
 ### Guidelines
 
-- Siga as convenções do Go (gofmt, golint)
-- Adicione testes para novas funcionalidades
-- Atualize documentação quando necessário
-- Use [Conventional Commits](https://conventionalcommits.org/)
+- Follow Go conventions (`gofmt`, `golint`)
+- Add tests for new functionality (target: 65%+ coverage)
+- Update documentation for user-facing changes
+- Keep commits atomic and well-described
 
-## 📄 Licença
+## License
 
-Este projeto está licenciado sob a MIT License - veja [LICENSE](LICENSE) para detalhes.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
 
-## 👥 Equipe
+## Team
 
-- **Inácio Moraes da Silva** - *Desenvolvedor Principal* - [GitHub](https://github.com/seu-usuario)
-- **Prof. Cleiton Silva Tavares** - *Orientador* - PUC Minas
+- **Inácio Moraes da Silva** - *Lead Developer*
+- **Prof. Cleiton Silva Tavares** - *Advisor* - PUC Minas
 
-## 🙏 Agradecimentos
+## Acknowledgments
 
-- PUC Minas - Curso de Engenharia de Software
-- Comunidade Go pela excelente documentação
-- OpenAI pelos serviços de IA
-- GitHub pela API robusta
+- PUC Minas - Software Engineering Program
+- Go community for excellent documentation and tools
+- OpenAI and Anthropic for AI services
+- GitHub for robust API access

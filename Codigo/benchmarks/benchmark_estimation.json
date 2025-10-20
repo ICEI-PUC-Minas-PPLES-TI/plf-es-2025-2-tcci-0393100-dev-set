@@ -1,0 +1,139 @@
+{
+  "benchmark_name": "Estimation Engine Performance Test",
+  "version": "2.0",
+  "date": "2025-10-19",
+  "test_cases": [
+    {
+      "id": "TC001",
+      "category": "authentication",
+      "task_title": "Add OAuth authentication",
+      "task_description": "Implement OAuth 2.0 login flow with Google and GitHub providers",
+      "expected_characteristics": {
+        "should_find_similar": true,
+        "expected_size_range": ["M", "L"],
+        "notes": "Should match authentication-related historical tasks"
+      }
+    },
+    {
+      "id": "TC002",
+      "category": "bug_fix",
+      "task_title": "Fix login timeout bug",
+      "task_description": "Users are being logged out after 5 minutes instead of 30 minutes",
+      "expected_characteristics": {
+        "should_find_similar": true,
+        "expected_size_range": ["XS", "S"],
+        "notes": "Bug fixes typically smaller, should find similar bug tasks"
+      }
+    },
+    {
+      "id": "TC003",
+      "category": "feature",
+      "task_title": "Implement user dashboard",
+      "task_description": "Create a dashboard showing user activity, recent tasks, and statistics with charts",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["L", "XL"],
+        "notes": "Large feature, may not have exact matches"
+      }
+    },
+    {
+      "id": "TC004",
+      "category": "refactoring",
+      "task_title": "Refactor database layer",
+      "task_description": "Extract database logic into repository pattern with better error handling",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["M", "L"],
+        "notes": "Refactoring task, moderate complexity"
+      }
+    },
+    {
+      "id": "TC005",
+      "category": "documentation",
+      "task_title": "Update API documentation",
+      "task_description": "Add OpenAPI/Swagger documentation for all REST endpoints",
+      "expected_characteristics": {
+        "should_find_similar": true,
+        "expected_size_range": ["S", "M"],
+        "notes": "Documentation tasks are common"
+      }
+    },
+    {
+      "id": "TC006",
+      "category": "testing",
+      "task_title": "Create test",
+      "task_description": "",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["XS", "S", "M"],
+        "notes": "Ambiguous task, low similarity expected"
+      }
+    },
+    {
+      "id": "TC007",
+      "category": "performance",
+      "task_title": "Optimize database queries",
+      "task_description": "Add indexes and optimize slow queries identified in production logs",
+      "expected_characteristics": {
+        "should_find_similar": true,
+        "expected_size_range": ["S", "M"],
+        "notes": "Performance optimization, common task type"
+      }
+    },
+    {
+      "id": "TC008",
+      "category": "infrastructure",
+      "task_title": "Set up CI/CD pipeline",
+      "task_description": "Configure GitHub Actions for automated testing, building, and deployment",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["L", "XL"],
+        "notes": "Infrastructure task, potentially large"
+      }
+    },
+    {
+      "id": "TC009",
+      "category": "ui",
+      "task_title": "Add dark mode theme",
+      "task_description": "Implement dark mode toggle with CSS variables and user preference persistence",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["M", "L"],
+        "notes": "UI feature, medium to large"
+      }
+    },
+    {
+      "id": "TC010",
+      "category": "generic",
+      "task_title": "Management meeting",
+      "task_description": "",
+      "expected_characteristics": {
+        "should_find_similar": true,
+        "expected_size_range": ["XS", "S"],
+        "notes": "Administrative task, should find similar meeting tasks"
+      }
+    },
+    {
+      "id": "TC011",
+      "category": "security",
+      "task_title": "Implement rate limiting",
+      "task_description": "Add rate limiting to API endpoints to prevent abuse",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["M", "L"],
+        "notes": "Security feature, moderate to large"
+      }
+    },
+    {
+      "id": "TC012",
+      "category": "data_migration",
+      "task_title": "Migrate user data to new schema",
+      "task_description": "Update database schema and migrate existing user records",
+      "expected_characteristics": {
+        "should_find_similar": false,
+        "expected_size_range": ["L", "XL"],
+        "notes": "Data migration, typically large and risky"
+      }
+    }
+  ]
+}

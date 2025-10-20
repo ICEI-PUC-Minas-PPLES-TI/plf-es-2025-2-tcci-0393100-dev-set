@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(go get:*)",
+      "Bash(go test:*)",
+      "Bash(go tool cover:*)",
+      "Bash(go build:*)",
+      "Bash(./bin/set.exe:*)",
+      "Bash(go mod:*)",
+      "Read(//c/Users/Inácio Moraes/**)",
+      "Bash(cat \"C:\\Users\\Inácio Moraes\\.set.yaml\")",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Derek-Jones/SiP_dataset/master/Sip-task-info.csv\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Derek-Jones/SiP_dataset/master/Sip-task-info.csv\" -o \"C:\\Users\\Inácio Moraes\\Documents\\GitHub\\plf-es-2025-2-tcci-0393100-dev-set\\Codigo\\sip-raw.csv\")",
+      "Bash(python generate_seed_data.py)",
+      "Bash(python run_benchmark.py)",
+      "Bash(tree benchmarks -L 1)",
+      "Bash(for file in cmd/analyze.go cmd/calibrate.go cmd/report.go)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(head -50 \"$file\")",
+      "Bash(done)",
+      "Bash(awk '{print $9, $5}')",
+      "Bash(gofmt -l cmd/*.go internal/*/*.go)",
+      "Bash(gofmt -w cmd/*.go internal/*/*.go)",
+      "Bash(awk '{print $5}')",
+      "Bash(awk '{print \"\"\"\"Size:\"\"\"\", $5}')",
+      "Bash(awk '{print $2, $NF}')",
+      "Bash(awk '$NF < 100')",
+      "Bash(dir examples)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
